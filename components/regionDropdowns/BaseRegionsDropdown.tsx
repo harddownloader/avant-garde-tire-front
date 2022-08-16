@@ -4,17 +4,20 @@ import clsx from "clsx";
 import React from "react";
 
 export type HorizontalAlignment = "left" | "right";
+export type VerticalAlignment = "top" | "bottom";
 
 interface BaseRegionsDropdownProps {
   label: string;
   children?: React.ReactNode;
   horizontalAlignment?: HorizontalAlignment;
+  verticalAlignment?: VerticalAlignment;
 }
 
 export function BaseRegionsDropdown({
   label,
   children,
   horizontalAlignment = "left",
+  verticalAlignment = "top",
 }: BaseRegionsDropdownProps) {
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -36,7 +39,10 @@ export function BaseRegionsDropdown({
         <Menu.Items
           className={clsx(
             horizontalAlignment === "left" ? "left-0" : "right-0",
-            "focus:outline-none absolute -translate-y-full origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 z-10"
+            `focus:outline-none absolute ${
+              verticalAlignment === "top" ? "-translate-y-full" : "translate-y-0"
+            } origin-top-right bg-white shadow-lg ring-1 ring-black ring-opacity-5 z-10`
+            //
           )}
         >
           {children}

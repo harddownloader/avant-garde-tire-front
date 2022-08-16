@@ -4,7 +4,7 @@ import React from "react";
 import { LOCALES } from "@/lib/regions";
 
 import { useRegions } from "../RegionsProvider";
-import { BaseRegionsDropdown, HorizontalAlignment } from "./BaseRegionsDropdown";
+import { BaseRegionsDropdown, HorizontalAlignment, VerticalAlignment } from "./BaseRegionsDropdown";
 import { BaseRegionsDropdownItem } from "./BaseRegionsDropdownItem";
 
 interface DropdownOption {
@@ -15,9 +15,10 @@ interface DropdownOption {
 
 export interface LocaleDropdownProps {
   horizontalAlignment?: HorizontalAlignment;
+  verticalAlignment?: VerticalAlignment;
 }
 
-export function LocaleDropdown({ horizontalAlignment }: LocaleDropdownProps) {
+export function LocaleDropdown({ horizontalAlignment, verticalAlignment }: LocaleDropdownProps) {
   const router = useRouter();
   const { currentLocale, currentChannel } = useRegions();
 
@@ -44,7 +45,11 @@ export function LocaleDropdown({ horizontalAlignment }: LocaleDropdownProps) {
   };
 
   return (
-    <BaseRegionsDropdown label={currentLocale} horizontalAlignment={horizontalAlignment}>
+    <BaseRegionsDropdown
+      label={currentLocale}
+      horizontalAlignment={horizontalAlignment}
+      verticalAlignment={verticalAlignment}
+    >
       {localeOptions.map((option) => (
         <BaseRegionsDropdownItem
           key={option.label}
