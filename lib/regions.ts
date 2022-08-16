@@ -13,6 +13,16 @@ export const LOCALES = [
     code: "PL_PL" as LanguageCodeEnum,
     name: "Polski",
   },
+  {
+    slug: "UK",
+    code: "UK" as LanguageCodeEnum,
+    name: "Українська",
+  },
+  {
+    slug: "RU",
+    code: "RU" as LanguageCodeEnum,
+    name: "Русский",
+  },
 ];
 export const DEFAULT_LOCALE = "en-US";
 
@@ -36,6 +46,11 @@ export const CHANNELS: Channel[] = [
     slug: "channel-pln",
     name: "Polski Złoty",
     currencyCode: "PLN",
+  },
+  {
+    slug: "ukraine",
+    name: "Ukraine",
+    currencyCode: "UAH",
   },
 ];
 
