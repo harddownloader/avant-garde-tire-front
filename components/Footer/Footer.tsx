@@ -1,17 +1,16 @@
 import clsx from "clsx";
-import Image from "next/image";
 import Link from "next/link";
-import { HTMLAttributes } from "react";
+import React, { HTMLAttributes } from "react";
 
+import { STOREFRONT_NAME } from "@/lib/const";
 import { getLinkPath } from "@/lib/menus";
 import { usePaths } from "@/lib/paths";
 import { useFooterMenuQuery } from "@/saleor/api";
 
-import { Box } from "../Box";
 import { ChannelDropdown } from "../regionDropdowns/ChannelDropdown";
 import { LocaleDropdown } from "../regionDropdowns/LocaleDropdown";
 import { useRegions } from "../RegionsProvider";
-import styles from "./Footer.module.css";
+import styles from "./Footer.module.scss";
 
 export type FooterProps = HTMLAttributes<HTMLElement>;
 
@@ -29,12 +28,12 @@ export function Footer({ className, ...rest }: FooterProps) {
 
   return (
     <footer className={clsx(styles.footer, className)} {...rest}>
-      <Box className={styles["footer-inner"]}>
+      <div className={styles["footer-inner"]}>
         <div className="flex mb-14 sm:mb-10">
           <Link href={paths.$url()} passHref>
             <a href="pass" className="hidden sm:inline-block">
               <div className="mt-px group block h-16 w-28 relative grayscale">
-                <Image src="/saleor.svg" alt="Saleor logo" layout="fill" />
+                <p className="font-bold text-3xl uppercase">{STOREFRONT_NAME}</p>
               </div>
             </a>
           </Link>
@@ -90,14 +89,14 @@ export function Footer({ className, ...rest }: FooterProps) {
         </div>
         <div className="flex items-center">
           <p className="text-sm text-main-3 flex-grow">
-            © Copyright 2018 - {new Date().getFullYear()} Saleor Commerce
+            © {new Date().getFullYear()} {STOREFRONT_NAME}
           </p>
           <div className="invisible md:visible flex gap-4">
             <ChannelDropdown horizontalAlignment="right" />
             <LocaleDropdown horizontalAlignment="right" />
           </div>
         </div>
-      </Box>
+      </div>
     </footer>
   );
 }
