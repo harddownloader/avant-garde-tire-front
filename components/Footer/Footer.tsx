@@ -10,7 +10,7 @@ import { useFooterMenuQuery } from "@/saleor/api";
 import { ChannelDropdown } from "../regionDropdowns/ChannelDropdown";
 import { LocaleDropdown } from "../regionDropdowns/LocaleDropdown";
 import { useRegions } from "../RegionsProvider";
-import styles from "./Footer.module.scss";
+import styles from "./Footer.module.css";
 
 export type FooterProps = HTMLAttributes<HTMLElement>;
 
