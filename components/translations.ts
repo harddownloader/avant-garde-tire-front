@@ -368,6 +368,11 @@ export const messages = defineMessages({
     description: "Set billing default button label",
     defaultMessage: "Set as billing default",
   },
+  sortBy: {
+    id: "app.filter.sortBy",
+    description: "Label for sort dropdown list on category page",
+    defaultMessage: "Sort by",
+  },
 });
 
 export default messages;

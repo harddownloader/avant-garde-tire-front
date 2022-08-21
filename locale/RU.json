@@ -71,5 +71,6 @@
   "app.ui.noProductsInfo": "Поисковый запрос не дал никаких результатов",
   "app.ui.productCounter": "{currentItemsCount} out of {totalItemsCount}",
   "app.ui.removeButton": "Удалить",
-  "app.ui.saveButton": "Save"
+  "app.ui.saveButton": "Save",
+  "app.filter.sortBy": "Сортировать по"
 }

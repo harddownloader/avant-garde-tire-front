@@ -71,5 +71,6 @@
   "app.ui.noProductsInfo": "Search query didn't return any viable results",
   "app.ui.productCounter": "{currentItemsCount} out of {totalItemsCount}",
   "app.ui.removeButton": "Видалити",
-  "app.ui.saveButton": "Save"
+  "app.ui.saveButton": "Save",
+  "app.filter.sortBy": "Сортувати за"
 }
