@@ -1,7 +1,6 @@
 import { ChipButton } from "@saleor/ui-kit";
 import React from "react";
 
-import { Box } from "../Box";
 import { RichText } from "../RichText";
 
 export interface PageHeroProps {
@@ -15,8 +14,7 @@ export interface PageHeroProps {
 
 export function PageHero({ title, description, pills = [] }: PageHeroProps) {
   return (
-    <Box>
-      <div className="sm:ml-20 sm:text-left">
+    <div className="sm:text-left md:mt-4">
         <h1 className="text-5xl font-bold mb-4" data-testid={`titleOf${title}`}>
           {title}
         </h1>
@@ -34,7 +32,6 @@ export function PageHero({ title, description, pills = [] }: PageHeroProps) {
           </div>
         )}
       </div>
-    </Box>
   );
 }
 
