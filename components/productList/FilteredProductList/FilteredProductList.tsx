@@ -1,7 +1,9 @@
 import { queryTypes, TransitionOptions, useQueryState } from "next-usequerystate";
 import { useEffect, useState } from "react";
+import { useIntl } from "react-intl";
 
 import { ProductCollection } from "@/components/ProductCollection";
+import { messages } from "@/components/translations";
 import { translate } from "@/lib/translations";
 import {
   AttributeFilterFragment,
@@ -43,6 +45,7 @@ export function FilteredProductList({
   collectionIDs,
   categoryIDs,
 }: FilteredProductListProps) {
+  const t = useIntl();
   const [queryFilters, setQueryFilters] = useQueryState("filters", {
     parse: parseQueryAttributeFilters,
     serialize: serializeQueryAttributeFilters,
@@ -174,7 +177,9 @@ export function FilteredProductList({
             />
           </div>
           <div className="flex-none text-main-2 text-base">
-            <div>{itemsCounter} items</div>
+            <div>
+              {itemsCounter} {t.formatMessage(messages.products)}
+            </div>
           </div>
         </div>
         {pills.length > 0 && (
