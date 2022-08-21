@@ -1,5 +1,8 @@
 import { Switch } from "@headlessui/react";
 import clsx from "clsx";
+import { useIntl } from "react-intl";
+
+import { messages } from "@/components/translations";
 
 export interface StockToggleProps {
   enabled: boolean;
@@ -7,6 +10,8 @@ export interface StockToggleProps {
 }
 
 export function StockToggle({ enabled, onChange }: StockToggleProps) {
+  const t = useIntl();
+
   return (
     <div className="inline-block py-2 px-2">
       <Switch.Group>
@@ -23,7 +28,7 @@ export function StockToggle({ enabled, onChange }: StockToggleProps) {
             )}
           />
         </Switch>
-        <Switch.Label className="ml-2 text-base">In stock</Switch.Label>
+        <Switch.Label className="ml-2 text-base">{t.formatMessage(messages.inStock)}</Switch.Label>
       </Switch.Group>
     </div>
   );

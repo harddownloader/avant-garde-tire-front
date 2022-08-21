@@ -72,5 +72,6 @@
   "app.ui.productCounter": "{currentItemsCount} out of {totalItemsCount}",
   "app.ui.removeButton": "Видалити",
   "app.ui.saveButton": "Save",
-  "app.filter.sortBy": "Сортувати за"
+  "app.filter.sortBy": "Сортувати за",
+  "app.filter.inStock": "В наявності"
 }

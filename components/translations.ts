@@ -373,6 +373,11 @@ export const messages = defineMessages({
     description: "Label for sort dropdown list on category page",
     defaultMessage: "Sort by",
   },
+  inStock: {
+    id: "app.filter.inStock",
+    description: "Label for switcher 'In stock' on category page",
+    defaultMessage: "In stock",
+  },
 });
 
 export default messages;

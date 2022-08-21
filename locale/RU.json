@@ -72,5 +72,6 @@
   "app.ui.productCounter": "{currentItemsCount} out of {totalItemsCount}",
   "app.ui.removeButton": "Удалить",
   "app.ui.saveButton": "Save",
-  "app.filter.sortBy": "Сортировать по"
+  "app.filter.sortBy": "Сортировать по",
+  "app.filter.inStock": "В наличии"
 }

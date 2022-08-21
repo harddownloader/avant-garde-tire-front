@@ -72,5 +72,6 @@
   "app.ui.productCounter": "{currentItemsCount} z {totalItemsCount}",
   "app.ui.removeButton": "Usuń",
   "app.ui.saveButton": "Zapisz",
-  "app.filter.sortBy": "Sortuj według"
+  "app.filter.sortBy": "Sortuj według",
+  "app.filter.inStock": "W magazynie"
 }
