@@ -73,5 +73,6 @@
   "app.ui.removeButton": "Remove",
   "app.ui.saveButton": "Save",
   "app.filter.sortBy": "Sort by",
-  "app.filter.inStock": "In stock"
+  "app.filter.inStock": "In stock",
+  "app.category.products": "products"
 }

@@ -378,6 +378,11 @@ export const messages = defineMessages({
     description: "Label for switcher 'In stock' on category page",
     defaultMessage: "In stock",
   },
+  products: {
+    id: "app.category.products",
+    description: "Text to display the number of products for the category",
+    defaultMessage: "products",
+  },
 });
 
 export default messages;
