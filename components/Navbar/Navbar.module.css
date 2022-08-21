@@ -2,6 +2,10 @@
   @apply bg-white text-main sticky top-0 z-50;
 }
 
+.inner-top-bar {
+  @apply container h-10 flex flex-nowrap items-center;
+}
+
 .inner {
   @apply container h-18 flex flex-nowrap items-center;
 }
