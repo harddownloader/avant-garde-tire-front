@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
+import { TopBar } from "@/components/Navbar/TopBar";
+import { STOREFRONT_NAME } from "@/lib/const";
 import { usePaths } from "@/lib/paths";
 import { useCheckout } from "@/lib/providers/CheckoutProvider";
 import { CheckoutLineDetailsFragment } from "@/saleor/api";
@@ -12,7 +14,6 @@ import { BurgerMenu } from "../BurgerMenu";
 import { Menu } from "./Menu";
 import styles from "./Navbar.module.css";
 import NavIconButton from "./NavIconButton";
-import Stamp from "./Stamp";
 import UserMenu from "./UserMenu";
 
 export function Navbar() {
@@ -42,14 +43,24 @@ export function Navbar() {
   return (
     <>
       <div className={clsx(styles.navbar)}>
+        <div className={styles["inner-top-bar"]}>
+          <TopBar />
+        </div>
         <div className={clsx(styles.inner)}>
-          <div className="flex-1 h-full hidden xs:flex">
+          <div className="flex-1 h-full hidden lg:flex">
             <Menu />
+          </div>
+          <div className="flex-1 flex xs:justify-start lg:hidden">
+            <NavIconButton
+              icon="menu"
+              className="ml-2 lg:hidden"
+              onClick={() => setBurgerOpen(true)}
+            />
           </div>
           <div className="flex-1 flex xs:justify-center">
             <Link href={paths.$url()} passHref>
               <a href="pass" className={styles.logo}>
-                <Stamp />
+                <p className="font-bold text-3xl uppercase">{STOREFRONT_NAME}</p>
               </a>
             </Link>
           </div>
@@ -73,12 +84,6 @@ export function Navbar() {
                 <NavIconButton icon="spyglass" data-testid="searchIcon" />
               </a>
             </Link>
-
-            <NavIconButton
-              icon="menu"
-              className="ml-2 lg:hidden"
-              onClick={() => setBurgerOpen(true)}
-            />
           </div>
         </div>
       </div>
