@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
+import { ThemeToggle } from "@/components/Navbar/ThemeToggler";
 import { TopBar } from "@/components/Navbar/TopBar";
 import { STOREFRONT_NAME } from "@/lib/const";
 import { usePaths } from "@/lib/paths";
@@ -84,6 +85,8 @@ export function Navbar() {
                 <NavIconButton icon="spyglass" data-testid="searchIcon" />
               </a>
             </Link>
+
+            <ThemeToggle />
           </div>
         </div>
       </div>

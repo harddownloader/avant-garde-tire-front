@@ -49,6 +49,7 @@ specifiers:
   next: 12.1.5
   next-seo: ^5.3.0
   next-sitemap: ^2.4.3
+  next-themes: ^0.2.0
   next-usequerystate: ^1.7.2
   nextjs-progressbar: ^0.0.14
   pathpida: ^0.18.1
@@ -86,6 +87,7 @@ dependencies:
   next: 12.1.5_zpnidt7m3osuk7shl3s4oenomq
   next-seo: 5.3.0_dtzmyspcyj3erncazrhasijzmy
   next-sitemap: 2.4.3_next@12.1.5
+  next-themes: 0.2.0_dtzmyspcyj3erncazrhasijzmy
   next-usequerystate: 1.7.2_dtzmyspcyj3erncazrhasijzmy
   nextjs-progressbar: 0.0.14_next@12.1.5+react@18.0.0
   react: 18.0.0
@@ -6387,6 +6389,18 @@ packages:
       '@corex/deepmerge': 2.6.148
       minimist: 1.2.5
       next: 12.1.5_zpnidt7m3osuk7shl3s4oenomq
+    dev: false
+
+  /next-themes/0.2.0_dtzmyspcyj3erncazrhasijzmy:
+    resolution: {integrity: sha512-myhpDL4vadBD9YDSHiewqvzorGzB03N84e+3LxCwHRlM/hiBOaW+UsKsQojQAzC7fdcJA0l2ppveXcYaVV+hxQ==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 12.1.5_zpnidt7m3osuk7shl3s4oenomq
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
     dev: false
 
   /next-usequerystate/1.7.2_dtzmyspcyj3erncazrhasijzmy:
