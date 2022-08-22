@@ -11,19 +11,20 @@ export function ThemeToggle() {
 
   if (!mounted) return null;
 
-  return (
-    <button
-      type="button"
-      className="w-8 h-8 rounded-lg flex items-center justify-center hover:ring-2 ring-black dark:ring-white transition-all duration-300 focus:outline-none"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+  return theme === "light" ? (
+    <NavIconButton
+      icon="moon"
+      data-testid="dark theme"
       aria-label="Toggle Dark Mode"
-    >
-      {theme === "light" ? (
-        <NavIconButton icon="moon" data-testid="dark theme" />
-      ) : (
-        <NavIconButton icon="sun" data-testid="light theme" />
-      )}
-    </button>
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+    />
+  ) : (
+    <NavIconButton
+      icon="sun"
+      data-testid="light theme"
+      aria-label="Toggle Dark Mode"
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+    />
   );
 }
 
