@@ -86,7 +86,7 @@ export function CheckoutLineItem({ line }: CheckoutLineItemProps) {
                 <Link href={paths.products._slug(line?.variant?.product?.slug).$url()} passHref>
                   <a
                     href="pass"
-                    className="font-medium text-gray-700 hover:text-gray-800"
+                    className="font-medium text-gray-700 dark:text-white hover:text-gray-800"
                     data-testid={`cartProductItem${line?.variant.product.name}`}
                   >
                     {translate(line?.variant.product, "name")}
@@ -113,7 +113,7 @@ export function CheckoutLineItem({ line }: CheckoutLineItemProps) {
                     },
                   })
                 }
-                className="text-md font-medium text-indigo-600 hover:text-indigo-500 sm:ml-0 sm:mt-3"
+                className="text-md font-medium text-action-1 hover:text-action-2 sm:ml-0 sm:mt-3"
               >
                 <span>{t.formatMessage(messages.removeButton)}</span>
               </button>
@@ -132,6 +132,7 @@ export function CheckoutLineItem({ line }: CheckoutLineItemProps) {
                 type="number"
                 className={clsx(
                   "h-8 md:mt-2 w-10 md:w-16 block border-gray-300 rounded-md shadow-sm text-base",
+                  "dark: text-black",
                   errors && "border-red-500"
                 )}
                 defaultValue={quantity}
@@ -150,7 +151,7 @@ export function CheckoutLineItem({ line }: CheckoutLineItemProps) {
                 disabled={loadingLineUpdate}
                 pattern="[0-9]*"
               />
-              <p className="text-md md:text-xl text-gray-900 text-right">
+              <p className="text-md md:text-xl text-gray-900 text-right dark:text-white">
                 {formatPrice(line?.totalPrice?.gross)}
               </p>
             </div>
