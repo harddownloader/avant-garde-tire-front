@@ -43,7 +43,7 @@ export function Navbar() {
 
   return (
     <>
-      <div className={clsx(styles.navbar)}>
+      <div className={clsx(styles.navbar, "dark:bg-black dark:text-white")}>
         <div className={styles["inner-top-bar"]}>
           <TopBar />
         </div>
@@ -85,8 +85,9 @@ export function Navbar() {
                 <NavIconButton icon="spyglass" data-testid="searchIcon" />
               </a>
             </Link>
-
-            <ThemeToggle />
+            <div className="ml-2">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>
