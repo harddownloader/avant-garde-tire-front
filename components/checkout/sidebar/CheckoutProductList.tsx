@@ -38,14 +38,20 @@ export function CheckoutProductList({ lines, token }: CheckoutProductListProps) 
 
             <div className="flex flex-col justify-between space-y-4">
               <div className="text-sm font-medium space-y-1">
-                <h3 className="text-gray-900">{translate(line.variant.product, "name")}</h3>
-                <p className="text-gray-500">{translate(line.variant, "name")}</p>
-                <p className="text-gray-900">{formatPrice(line.totalPrice?.gross)}</p>
+                <h3 className="text-gray-900 dark:text-white">
+                  {translate(line.variant.product, "name")}
+                </h3>
+                <p className="text-gray-500 dark:text-neutral-300">
+                  {translate(line.variant, "name")}
+                </p>
+                <p className="text-gray-900 dark:text-white">
+                  {formatPrice(line.totalPrice?.gross)}
+                </p>
               </div>
               <div className="flex space-x-4">
                 <button
                   type="button"
-                  className="text-sm font-medium text-blue-600 hover:text-blue-500"
+                  className="text-sm font-medium text-action-1 hover:text-action-2"
                   onClick={() =>
                     removeProductFromCheckout({
                       variables: {
