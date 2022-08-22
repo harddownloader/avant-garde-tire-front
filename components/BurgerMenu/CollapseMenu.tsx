@@ -20,7 +20,10 @@ export function CollapseMenu({ menuItem }: CollapseMenuProps) {
   return (
     <div className={styles.collapse}>
       {shouldDisplayAnchor ? (
-        <NavigationAnchor menuItem={menuItem} className={styles["collapse-main"]} />
+        <NavigationAnchor
+          menuItem={menuItem}
+          className={clsx(styles["collapse-main"], "dark:text-white")}
+        />
       ) : (
         <>
           <button
