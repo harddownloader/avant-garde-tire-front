@@ -43,10 +43,13 @@ export function CartSummary({ checkout }: CartSummaryProps) {
   });
   return (
     <section>
-      <div className="bg-gray-50 rounded p-4 border">
+      <div className="bg-gray-50 rounded p-4 border dark:bg-black dark:border-neutral-600">
         {(editPromoCode || !discount?.amount) && (
           <form className="pb-4" onSubmit={onAddPromoCode}>
-            <label htmlFor="discount-code" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="discount-code"
+              className="block text-sm font-medium text-gray-700 dark:text-white"
+            >
               {t.formatMessage(messages.discountCodeFieldLabel)}
             </label>
             <div className="flex space-x-4 mt-1">
@@ -60,7 +63,7 @@ export function CartSummary({ checkout }: CartSummaryProps) {
               />
               <button
                 type="submit"
-                className="bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-blue-300"
+                className="bg-gray-200 text-sm font-medium text-gray-600 rounded-md px-4 hover:bg-action-1"
               >
                 {t.formatMessage(messages.activateButton)}
               </button>
@@ -74,25 +77,45 @@ export function CartSummary({ checkout }: CartSummaryProps) {
           <dl className="text-sm">
             {!!discount?.amount && (
               <div className="py-2 flex items-center justify-between">
-                <dt className="text-gray-600">{t.formatMessage(messages.discount)}</dt>
-                <dd className="font-medium text-gray-900">{formatPrice(discount)}</dd>
+                <dt className="text-gray-600 dark:text-neutral-400">
+                  {t.formatMessage(messages.discount)}
+                </dt>
+                <dd className="font-medium text-gray-900 dark:text-white">
+                  {formatPrice(discount)}
+                </dd>
               </div>
             )}
             <div className="py-2 flex items-center justify-between">
-              <dt className="text-gray-600">{t.formatMessage(messages.subtotal)}</dt>
-              <dd className="font-medium text-gray-900">{formatPrice(subtotalPrice?.net)}</dd>
+              <dt className="text-gray-600 dark:text-neutral-300">
+                {t.formatMessage(messages.subtotal)}
+              </dt>
+              <dd className="font-medium text-gray-900 dark:text-white">
+                {formatPrice(subtotalPrice?.net)}
+              </dd>
             </div>
             <div className="py-2 flex items-center justify-between">
-              <dt className="text-gray-600">{t.formatMessage(messages.shipping)}</dt>
-              <dd className="font-medium text-gray-900">{formatPrice(shippingPrice?.gross)}</dd>
+              <dt className="text-gray-600 dark:text-neutral-300">
+                {t.formatMessage(messages.shipping)}
+              </dt>
+              <dd className="font-medium text-gray-900 dark:text-white">
+                {formatPrice(shippingPrice?.gross)}
+              </dd>
             </div>
             <div className="py-2 flex items-center justify-between">
-              <dt className="text-gray-600">{t.formatMessage(messages.tax)}</dt>
-              <dd className="font-medium text-gray-900">{formatPrice(subtotalPrice?.tax)}</dd>
+              <dt className="text-gray-600 dark:text-neutral-300">
+                {t.formatMessage(messages.tax)}
+              </dt>
+              <dd className="font-medium text-gray-900 dark:text-white">
+                {formatPrice(subtotalPrice?.tax)}
+              </dd>
             </div>
             <div className="pt-4 flex items-center justify-between border-t border-gray-300">
-              <dt className="text-lg font-bold text-gray-900">{t.formatMessage(messages.total)}</dt>
-              <dd className="text-lg font-bold text-gray-900">{formatPrice(totalPrice?.gross)}</dd>
+              <dt className="text-lg font-bold text-gray-900 dark:text-neutral-300">
+                {t.formatMessage(messages.total)}
+              </dt>
+              <dd className="text-lg font-bold text-gray-900 dark:text-white">
+                {formatPrice(totalPrice?.gross)}
+              </dd>
             </div>
           </dl>
         </div>
