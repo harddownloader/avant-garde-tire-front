@@ -35,7 +35,7 @@ export function HomepageBlock({ menuItem }: HomepageBlockProps) {
   return (
     <div className="pb-8" data-testid="category">
       <h1
-        className="text-3xl font-extrabold tracking-tight text-gray-900 pb-4"
+        className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white pb-4"
         data-testid={`categoryName${menuItem.name}`}
       >
         {translate(menuItem, "name")}
