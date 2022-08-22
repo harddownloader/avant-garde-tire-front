@@ -48,7 +48,7 @@ export function BurgerMenu({ open, onCloseClick }: BurgerMenuProps) {
       })}
     >
       <div className={styles.backdrop} aria-hidden="true" onClick={onCloseClick} />
-      <div className={styles.body}>
+      <div className={clsx(styles.body, "dark:bg-black")}>
         <div className="flex justify-end w-full mb-5">
           <NavIconButton icon="close" onClick={onCloseClick} />
         </div>

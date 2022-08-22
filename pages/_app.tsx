@@ -3,15 +3,16 @@ import "styles/globals.css";
 import { ApolloProvider } from "@apollo/client";
 import { NextPage } from "next";
 import { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
 import NextNProgress from "nextjs-progressbar";
 import React, { ReactElement, ReactNode } from "react";
 
-import { DemoBanner } from "@/components/DemoBanner";
 import { RegionsProvider } from "@/components/RegionsProvider";
 import { SaleorProviderWithChannels } from "@/components/SaleorProviderWithChannels";
-import { DEMO_MODE } from "@/lib/const";
 import apolloClient from "@/lib/graphql";
 import { CheckoutProvider } from "@/lib/providers/CheckoutProvider";
+
+import tailwindConfig from "../tailwind.config";
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -29,9 +30,13 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <CheckoutProvider>
         <RegionsProvider>
           <SaleorProviderWithChannels>
-            <NextNProgress color="#5B68E4" options={{ showSpinner: false }} />
-            {DEMO_MODE && <DemoBanner />}
-            {getLayout(<Component {...pageProps} />)}
+            <ThemeProvider enableSystem attribute="class">
+              <NextNProgress
+                color={tailwindConfig.theme.extend.colors.brand.DEFAULT || "green"}
+                options={{ showSpinner: false }}
+              />
+              {getLayout(<Component {...pageProps} />)}
+            </ThemeProvider>
           </SaleorProviderWithChannels>
         </RegionsProvider>
       </CheckoutProvider>

@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 @layer components {
-  .btn-blue {
-    @apply py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  .btn-primary {
+    @apply bg-action-1 border border-transparent rounded-md shadow-sm py-2 px-4 text-base text-white font-medium hover:bg-action-2 focus:outline-none focus:ring-2 focus:ring-action-1 focus:ring-opacity-75;
   }
 
   .checkout-section-container {
-    @apply bg-white rounded p-4 border;
+    @apply bg-white dark:bg-black rounded p-4 border;
   }
 
   .checkout-section-header-active {
-    @apply text-lg font-medium text-gray-900;
+    @apply text-lg font-medium text-gray-900 dark:text-white;
   }
   .checkout-section-header-disabled {
-    @apply text-lg font-medium text-gray-400;
+    @apply text-lg font-medium text-gray-400 dark:text-neutral-400;
   }
 
   .btn-checkout-section {
-    @apply w-full bg-blue-100 border border-blue-300 rounded-md shadow-sm py-2 px-4 text-base font-medium hover:bg-blue-200;
+    @apply w-full bg-action-1 border border-transparent rounded-md shadow-sm py-2 px-4 text-base text-white font-medium hover:bg-action-2;
   }
 }
 

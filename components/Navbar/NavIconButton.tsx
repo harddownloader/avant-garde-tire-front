@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes } from "react";
 import styles from "./Navbar.module.css"; // in the final version it should be imported from ui-kit package
 
 interface NavIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon: "user" | "bag" | "spyglass" | "menu" | "close";
+  icon: "user" | "bag" | "spyglass" | "menu" | "close" | "sun" | "moon";
   counter?: number;
 }
 
@@ -19,6 +19,10 @@ const getIcon = (iconName: NavIconButtonProps["icon"]) => {
       return <span className="material-icons-outlined">menu</span>;
     case "close":
       return <span className="material-icons-outlined">close</span>;
+    case "sun":
+      return <span className="material-icons-outlined">light_mode</span>;
+    case "moon":
+      return <span className="material-icons-outlined">dark_mode</span>;
     default:
       return iconName;
   }

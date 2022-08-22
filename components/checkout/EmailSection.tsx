@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useIntl } from "react-intl";
@@ -65,7 +66,11 @@ export function EmailSection({ checkout }: EmailSectionProps) {
               <input
                 type="text"
                 autoComplete="email"
-                className="w-full border-gray-300 rounded-lg shadow-sm text-base"
+                className={clsx(
+                  "w-full border-gray-300 rounded-lg shadow-sm text-base",
+                  "focus:outline-none focus:border-action-1 focus:ring focus:ring-action-1",
+                  "dark:text-black"
+                )}
                 {...register("email", {
                   required: true,
                   pattern: /^\S+@\S+$/i,

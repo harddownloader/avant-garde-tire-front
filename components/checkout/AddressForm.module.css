@@ -1,0 +1,7 @@
+.address_form__label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.address_form__input {
+  @apply block w-full border-gray-300 rounded-md shadow-sm focus:ring-action-1 focus:border-action-1 text-base;
+}

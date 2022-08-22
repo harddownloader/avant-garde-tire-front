@@ -12,6 +12,7 @@ const spacing = getSpacing(
 
 module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   mode: "jit",
   theme: {
     extend: {
@@ -27,17 +28,17 @@ module.exports = {
       },
       colors: {
         action: {
-          1: "#5B68E4",
-          2: "rgba(91, 104, 228, 0.8)",
-          3: "rgba(91, 104, 228, 0.6)",
-          4: "rgba(91, 104, 228, 0.4)",
-          5: "rgba(91, 104, 228, 0.2)",
+          1: "#cb0000",
+          2: "rgba(203, 0, 0, 0.8)",
+          3: "rgba(203, 0, 0, 0.6)",
+          4: "rgba(203, 0, 0, 0.4)",
+          5: "rgba(203, 0, 0, 0.2)",
         },
         disabled: {
           DEFAULT: "#C2D1E4",
         },
         brand: {
-          DEFAULT: "#5B68E4",
+          DEFAULT: "#cb0000",
         },
         main: {
           DEFAULT: "#394052",

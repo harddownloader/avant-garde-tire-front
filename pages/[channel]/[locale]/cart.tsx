@@ -28,7 +28,7 @@ function Cart() {
         <header className="mb-4">
           <div className="container px-8">
             <div className="flex justify-between">
-              <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
+              <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
                 {t.formatMessage(messages.cartPageHeader)}
               </h1>
               <div>
@@ -63,7 +63,7 @@ function Cart() {
                 <div className="mt-12">
                   {externalCheckoutUrl ? (
                     <a
-                      className="block w-full bg-blue-500 border border-transparent rounded-md shadow-sm py-3 px-4 text-center font-medium text-white hover:bg-blue-700"
+                      className="block w-full bg-action-1 border border-transparent rounded-md shadow-sm py-3 px-4 text-center font-medium text-white hover:bg-action-2"
                       href={`${externalCheckoutUrl}?checkout=${checkout.id}`}
                       target="_self"
                     >
@@ -72,7 +72,7 @@ function Cart() {
                   ) : (
                     <Link href={paths.checkout.$url()} passHref>
                       <a
-                        className="block w-full bg-blue-500 border border-transparent rounded-md shadow-sm py-3 px-4 text-center font-medium text-md text-white hover:bg-blue-700"
+                        className="block w-full bg-action-1 border border-transparent rounded-md shadow-sm py-3 px-4 text-center font-medium text-md text-white hover:bg-action-2"
                         href="pass"
                       >
                         {t.formatMessage(messages.checkoutButton)}
