@@ -42,7 +42,7 @@ export function HomepageBlock({ menuItem }: HomepageBlockProps) {
       </h1>
       {/* place for future filters */}
       <ProductCollection filter={filter} allowMore={false} />
-      eslint
+
       <div className="flex flex-row-reverse p-4">
         <Link href={link} passHref>
           <a href="pass">
