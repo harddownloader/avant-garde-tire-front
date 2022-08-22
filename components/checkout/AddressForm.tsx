@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useIntl } from "react-intl";
@@ -5,6 +6,7 @@ import { useIntl } from "react-intl";
 import { AddressDetailsFragment, CheckoutError, CountryCode } from "@/saleor/api";
 
 import { messages } from "../translations";
+import classes from "./AddressForm.module.css";
 
 export interface AddressFormData {
   firstName: string;
@@ -61,18 +63,22 @@ export function AddressForm({
     // Address updated, we can exit the edit mode
     toggleEdit();
   });
+
   return (
     <form onSubmit={onAddressFormSubmit}>
       <div className="grid grid-cols-12 gap-4 w-full">
         <div className="col-span-full">
-          <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="address"
+            className={clsx(classes.address_form__label, "dark:text-neutral-400")}
+          >
             {t.formatMessage(messages.phoneField)}
           </label>
           <div className="mt-1">
             <input
               type="text"
               id="phone"
-              className="w-full border-gray-300 rounded-md shadow-sm text-base"
+              className={clsx(classes.address_form__input, "dark:text-black")}
               {...registerAddress("phone", {
                 required: true,
                 pattern: /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/i,
@@ -83,14 +89,17 @@ export function AddressForm({
         </div>
 
         <div className="col-span-full sm:col-span-6">
-          <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="firstName"
+            className={clsx(classes.address_form__label, "dark:text-neutral-400")}
+          >
             {t.formatMessage(messages.firstNameField)}
           </label>
           <div className="mt-1">
             <input
               type="text"
               id="province"
-              className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base"
+              className={clsx(classes.address_form__input, "dark:text-black")}
               {...registerAddress("firstName", {
                 required: true,
               })}
@@ -100,14 +109,17 @@ export function AddressForm({
         </div>
 
         <div className="col-span-full sm:col-span-6">
-          <label htmlFor="province" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="province"
+            className={clsx(classes.address_form__label, "dark:text-neutral-400")}
+          >
             {t.formatMessage(messages.lastNameField)}
           </label>
           <div className="mt-1">
             <input
               type="text"
               id="lastName"
-              className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base"
+              className={clsx(classes.address_form__input, "dark:text-black")}
               {...registerAddress("lastName", {
                 required: true,
               })}
@@ -117,14 +129,17 @@ export function AddressForm({
         </div>
 
         <div className="col-span-full">
-          <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="address"
+            className={clsx(classes.address_form__label, "dark:text-neutral-400")}
+          >
             {t.formatMessage(messages.addressField)}
           </label>
           <div className="mt-1">
             <input
               type="text"
               id="streetAddress1"
-              className="w-full border-gray-300 rounded-md shadow-sm text-base"
+              className={clsx(classes.address_form__input, "dark:text-black")}
               {...registerAddress("streetAddress1", {
                 required: true,
               })}
@@ -134,14 +149,17 @@ export function AddressForm({
         </div>
 
         <div className="col-span-full sm:col-span-6">
-          <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="city"
+            className={clsx(classes.address_form__label, "dark:text-neutral-400")}
+          >
             {t.formatMessage(messages.cityField)}
           </label>
           <div className="mt-1">
             <input
               type="text"
               id="city"
-              className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base"
+              className={clsx(classes.address_form__input, "dark:text-black")}
               {...registerAddress("city", { required: true })}
             />
             {!!errorsAddress.city && <p>{errorsAddress.city.message}</p>}
@@ -151,7 +169,7 @@ export function AddressForm({
         {/* <div className="col-span-full sm:col-span-4">
         <label
           htmlFor="province"
-          className="block text-sm font-medium text-gray-700"
+          className={clsx(classes.address_form__label, 'dark:text-neutral-400')}
         >
           Province
         </label>
@@ -159,13 +177,16 @@ export function AddressForm({
           <input
             type="text"
             id="province"
-            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className={clsx(classes.address_form__input, 'dark:text-black')}
           />
         </div>
       </div> */}
 
         <div className="col-span-full sm:col-span-6">
-          <label htmlFor="postal-code" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="postal-code"
+            className={clsx(classes.address_form__label, "dark:text-neutral-400")}
+          >
             {t.formatMessage(messages.postalCodeField)}
           </label>
           <div className="mt-1">
@@ -173,7 +194,7 @@ export function AddressForm({
               type="text"
               id="postal-code"
               autoComplete="postal-code"
-              className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-base"
+              className={clsx(classes.address_form__input, "dark:text-black")}
               {...registerAddress("postalCode", {
                 required: true,
               })}
