@@ -93,6 +93,35 @@ export function CheckoutLineItem({ line }: CheckoutLineItemProps) {
                   </a>
                 </Link>
               </h3>
+              <div className="flex justify-start items-center py-2">
+                <input
+                  type="number"
+                  className={clsx(
+                    "h-8 w-10 mr-2 block border-gray-300 rounded-md shadow-sm text-base",
+                    "md:mt-2 md:w-16",
+                    "dark: text-black",
+                    errors && "border-red-500"
+                  )}
+                  defaultValue={quantity}
+                  onFocus={() => {
+                    setErrors(null);
+                  }}
+                  onChange={(ev) => changeLineState(ev)}
+                  onBlur={(ev) => onQuantityUpdate(ev)}
+                  onKeyPress={(ev) => {
+                    if (ev.key === "Enter") {
+                      onQuantityUpdate(ev);
+                    }
+                  }}
+                  min={1}
+                  required
+                  disabled={loadingLineUpdate}
+                  pattern="[0-9]*"
+                />
+                <p className="text-md md:text-xl text-gray-900 text-right dark:text-white">
+                  {formatPrice(line?.totalPrice?.gross)}
+                </p>
+              </div>
               <h4 className="text-md font-regular">
                 <p
                   className="text-gray-700 hover:text-gray-800"
@@ -126,34 +155,6 @@ export function CheckoutLineItem({ line }: CheckoutLineItemProps) {
                   ))}
                 </div>
               )}
-            </div>
-            <div className="flex justify-items-end space-x-4 ">
-              <input
-                type="number"
-                className={clsx(
-                  "h-8 md:mt-2 w-10 md:w-16 block border-gray-300 rounded-md shadow-sm text-base",
-                  "dark: text-black",
-                  errors && "border-red-500"
-                )}
-                defaultValue={quantity}
-                onFocus={() => {
-                  setErrors(null);
-                }}
-                onChange={(ev) => changeLineState(ev)}
-                onBlur={(ev) => onQuantityUpdate(ev)}
-                onKeyPress={(ev) => {
-                  if (ev.key === "Enter") {
-                    onQuantityUpdate(ev);
-                  }
-                }}
-                min={1}
-                required
-                disabled={loadingLineUpdate}
-                pattern="[0-9]*"
-              />
-              <p className="text-md md:text-xl text-gray-900 text-right dark:text-white">
-                {formatPrice(line?.totalPrice?.gross)}
-              </p>
             </div>
           </div>
         </div>
