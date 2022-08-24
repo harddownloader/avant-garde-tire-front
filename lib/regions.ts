@@ -24,7 +24,7 @@ export const LOCALES = [
     name: "Русский",
   },
 ];
-export const DEFAULT_LOCALE = "en-US";
+export const DEFAULT_LOCALE = "RU";
 
 export const CHANNEL_SLUG_KEY = "channelSlug";
 
@@ -35,9 +35,9 @@ export interface Channel {
 }
 
 export const DEFAULT_CHANNEL: Channel = {
-  slug: "default-channel",
-  name: "United States Dollar",
-  currencyCode: "USD",
+  slug: "ukraine",
+  name: "Ukraine",
+  currencyCode: "UAH",
 };
 
 export const CHANNELS: Channel[] = [
@@ -48,9 +48,9 @@ export const CHANNELS: Channel[] = [
     currencyCode: "PLN",
   },
   {
-    slug: "ukraine",
-    name: "Ukraine",
-    currencyCode: "UAH",
+    slug: "default-channel",
+    name: "United States Dollar",
+    currencyCode: "USD",
   },
 ];
 
