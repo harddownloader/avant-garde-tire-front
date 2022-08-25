@@ -1,4 +1,8 @@
-import { Chip } from "@saleor/ui-kit";
+import React from "react";
+import { useIntl } from "react-intl";
+
+import { Tag } from "@/components/Tag";
+import { messages } from "@/components/translations";
 
 export interface FilterPill {
   label: string;
@@ -13,12 +17,14 @@ export interface FilterPillsProps {
 }
 
 export function FilterPills({ pills, onRemoveAttribute, onClearFilters }: FilterPillsProps) {
+  const t = useIntl();
+
   return (
     <div className="flex pt-4">
       <div className="flex-grow flex gap-2">
         {typeof window !== "undefined" &&
           pills.map(({ label, attributeSlug, choiceSlug }) => (
-            <Chip
+            <Tag
               key={`${attributeSlug}-${choiceSlug}`}
               label={label}
               data-testid={`filterPill${choiceSlug}`}
@@ -35,7 +41,7 @@ export function FilterPills({ pills, onRemoveAttribute, onClearFilters }: Filter
           type="button"
           data-testid="clearFilters"
         >
-          Clear all
+          {t.formatMessage(messages.clearAll)}
         </button>
       </div>
     </div>

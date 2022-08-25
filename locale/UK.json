@@ -74,5 +74,6 @@
   "app.ui.saveButton": "Зберегти",
   "app.filter.sortBy": "Сортувати за",
   "app.filter.inStock": "В наявності",
-  "app.category.products": "продуктів"
+  "app.category.products": "продуктів",
+  "app.category.clearAll": "Очистити все"
 }
