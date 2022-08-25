@@ -383,6 +383,11 @@ export const messages = defineMessages({
     description: "Text to display the number of products for the category",
     defaultMessage: "products",
   },
+  clearAll: {
+    id: "app.category.clearAll",
+    description: "Text of clear all filter tags btn for the category",
+    defaultMessage: "Clear all",
+  },
 });
 
 export default messages;
