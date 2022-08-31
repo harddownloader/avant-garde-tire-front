@@ -1,4 +1,4 @@
-import { PhotographIcon } from "@heroicons/react/outline";
+import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -40,19 +40,21 @@ export function ProductCard({ product }: ProductCardProps) {
                 <Image src={thumbnailUrl} width={512} height={512} />
               ) : (
                 <div className="grid justify-items-center content-center h-full w-full">
-                  <PhotographIcon className="h-10 w-10 content-center" />
+                  <span className={clsx("material-icons-outlined text-[50px]", "dark:text-black")}>
+                    image
+                  </span>
                 </div>
               )}
             </div>
           </div>
           <p
-            className="block mt-2 text-md font-extrabold text-main truncate dark:text-white"
+            className="block mt-2 text-md font-extrabold text-main  dark:text-white"
             data-testid={`productName${product.name}`}
           >
             {translate(product, "name")}
           </p>
           {secondaryDescription && (
-            <p className="block text-md font-normal text-main underline dark:text-neutral-400">
+            <p className="block mt-4 text-sm font-normal text-main uppercase dark:text-neutral-400">
               {secondaryDescription}
             </p>
           )}
