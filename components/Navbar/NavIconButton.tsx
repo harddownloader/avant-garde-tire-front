@@ -7,7 +7,7 @@ interface NavIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   counter?: number;
 }
 
-const getIcon = (iconName: NavIconButtonProps["icon"]) => {
+export const getIcon = (iconName: NavIconButtonProps["icon"]) => {
   switch (iconName) {
     case "user":
       return <span className="material-icons-outlined">person_outline</span>;
