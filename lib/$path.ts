@@ -60,7 +60,10 @@ export const pagesPath = {
         })
       },
       "search": {
-        $url: (url?: { hash?: string }) => ({ pathname: '/[channel]/[locale]/search' as const, query: { channel, locale }, hash: url?.hash })
+        $url: (url?: { hash?: string }) => ({ pathname: '/[channel]/[locale]/search' as const, query: { channel, locale }, hash: url?.hash }),
+        _slug: (q: string | number) => ({
+          $url: (url?: { hash?: string }) => ({ pathname: '/[channel]/[locale]/search' as const, query: { channel, locale, q }, hash: url?.hash }),
+        })
       },
       $url: (url?: { hash?: string }) => ({ pathname: '/[channel]/[locale]' as const, query: { channel, locale }, hash: url?.hash })
     })
