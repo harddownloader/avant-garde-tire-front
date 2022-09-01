@@ -5506,7 +5506,7 @@ packages:
     dev: true
 
   /immutable/3.7.6:
-    resolution: {integrity: sha1-E7TTyxK++hVIKib+Gy665kAHHks=}
+    resolution: {integrity: sha512-AizQPcaofEtO11RZhPPHBOJRdo/20MKQF9mBLnVkBoyHi1/zXK8fzVdnEpSV9gxqtnh6Qomfp3F0xT5qP/vThw==}
     engines: {node: '>=0.8.0'}
 
   /import-fresh/3.3.0:
