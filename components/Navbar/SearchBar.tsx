@@ -1,16 +1,22 @@
 import clsx from "clsx";
+import Link from "next/link";
 import { useQueryState } from "next-usequerystate";
-import React, { ReactElement } from "react";
+import React from "react";
 import { useIntl } from "react-intl";
 import { useDebounce } from "react-use";
 
-import { Layout, ProductCollection } from "@/components";
-import { getIcon } from "@/components/Navbar/NavIconButton";
+import { InteractiveSearch } from "@/components/InteractiveSearch";
 import { messages } from "@/components/translations";
+import { usePaths } from "@/lib/paths";
 import { ProductFilterInput } from "@/saleor/api";
 
-function SearchPage() {
+import { getIcon } from "./NavIconButton";
+import styles from "./SearchBar.module.css";
+
+export function SearchBar() {
   const t = useIntl();
+  const paths = usePaths();
+
   const [searchQuery, setSearchQuery] = useQueryState("q");
   const [debouncedFilter, setDebouncedFilter] = React.useState<ProductFilterInput>({});
 
@@ -27,11 +33,17 @@ function SearchPage() {
   );
 
   return (
-    <main className="w-full h-auto xl:container">
-      <div className="w-full h-16 mb-6 px-3 md:px-4 flex items-center bg-action-1">
+    <div className={clsx("w-full h-auto xl:container")}>
+      <div
+        className={clsx(
+          styles.searchBarWrap,
+          "w-full h-16 px-3 md:px-4 flex items-center bg-action-1"
+        )}
+      >
         <input
           className={clsx(
-            "w-screen h-full block border-none text-md bg-inherit text-white placeholder:text-slate-200 ring-transparent",
+            styles.searchBarInput,
+            "w-screen h-full p-2 block border-none text-md bg-inherit text-white placeholder:text-slate-200 ring-transparent",
             "focus:outline-none focus:border-none focus:ring-none focus:ring-transparent"
           )}
           type="text"
@@ -40,21 +52,19 @@ function SearchPage() {
           onChange={(e) => setSearchQuery(e.target.value, { scroll: false, shallow: true })}
           data-testid="searchInput"
         />
-        <div
-          className="w-12 xl:w-18 h-full bg-inherit text-white flex items-center justify-center"
-        >
-          {getIcon("spyglass")}
-        </div>
+        <Link href={paths.search._slug(searchQuery || "").$url()} passHref>
+          <a
+            href="pass"
+            className="w-12 xl:w-18 h-full bg-inherit text-white flex items-center justify-center"
+          >
+            {getIcon("spyglass")}
+          </a>
+        </Link>
       </div>
-      <div className="px-8">
-        <ProductCollection filter={debouncedFilter} />
-      </div>
-    </main>
+
+      <InteractiveSearch filter={debouncedFilter} />
+    </div>
   );
 }
 
-SearchPage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
-};
-
-export default SearchPage;
+export default SearchBar;

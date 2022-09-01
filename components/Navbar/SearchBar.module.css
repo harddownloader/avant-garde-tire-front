@@ -1,0 +1,27 @@
+.searchBarWrap {
+  animation-name: showByHeight;
+  animation-duration: 0.8s;
+}
+
+.searchBarInput {
+  animation-name: increasePadding;
+  animation-duration: 0.8s;
+}
+
+@keyframes showByHeight {
+  from {
+    @apply h-0;
+  }
+  to {
+    @apply h-16;
+  }
+}
+
+@keyframes increasePadding {
+  from {
+    @apply px-0 py-0;
+  }
+  to {
+    @apply px-2 py-1;
+  }
+}

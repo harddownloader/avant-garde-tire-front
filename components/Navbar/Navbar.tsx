@@ -2,8 +2,9 @@ import { useAuthState } from "@saleor/sdk";
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
+import { SearchBar } from "@/components/Navbar/SearchBar";
 import { ThemeToggle } from "@/components/Navbar/ThemeToggler";
 import { TopBar } from "@/components/Navbar/TopBar";
 import { STOREFRONT_NAME } from "@/lib/const";
@@ -22,6 +23,7 @@ export function Navbar() {
   const router = useRouter();
 
   const [isBurgerOpen, setBurgerOpen] = useState(false);
+  const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
   const { authenticated } = useAuthState();
   const { checkout } = useCheckout();
 
@@ -41,6 +43,11 @@ export function Navbar() {
       0
     ) || 0;
 
+  const isSearchPage = useMemo(
+    () => router.pathname === "/[channel]/[locale]/search",
+    [router?.pathname]
+  );
+
   return (
     <>
       <div className={clsx(styles.navbar, "dark:bg-black dark:text-white")}>
@@ -51,13 +58,23 @@ export function Navbar() {
           <div className="flex-1 h-full hidden lg:flex">
             <Menu />
           </div>
-          <div className="flex-1 flex xs:justify-start lg:hidden">
+          <div className="flex-1 flex flex items-center xs:justify-start lg:hidden">
             <NavIconButton
               icon="menu"
-              className="ml-2 lg:hidden"
+              className="ml-2 lg:hidden flex items-center"
               onClick={() => setBurgerOpen(true)}
             />
+            {!isSearchPage && (
+              <div className="flex md:hidden ml-2">
+                <NavIconButton
+                  icon={isSearchBarOpen ? "close" : "spyglass"}
+                  data-testid="searchIcon"
+                  onClick={() => setIsSearchBarOpen(!isSearchBarOpen)}
+                />
+              </div>
+            )}
           </div>
+
           <div className="flex-1 flex xs:justify-center">
             <Link href={paths.$url()} passHref>
               <a href="pass" className={styles.logo}>
@@ -68,7 +85,7 @@ export function Navbar() {
           <div className="flex-1 flex justify-end">
             {!authenticated ? (
               <Link href={paths.account.login.$url()} passHref>
-                <a href="pass">
+                <a href="pass" className="hidden lg:flex">
                   <NavIconButton icon="user" aria-hidden="true" />
                 </a>
               </Link>
@@ -76,15 +93,19 @@ export function Navbar() {
               <UserMenu />
             )}
             <Link href={paths.cart.$url()} passHref>
-              <a href="pass" className="ml-2 hidden xs:flex">
+              <a href="pass" className="ml-2 flex">
                 <NavIconButton icon="bag" aria-hidden="true" counter={counter} />
               </a>
             </Link>
-            <Link href={paths.search.$url()} passHref>
-              <a href="pass" className="hidden lg:flex ml-2">
-                <NavIconButton icon="spyglass" data-testid="searchIcon" />
-              </a>
-            </Link>
+            {!isSearchPage && (
+              <div className="hidden md:flex ml-2">
+                <NavIconButton
+                  icon={isSearchBarOpen ? "close" : "spyglass"}
+                  data-testid="searchIcon"
+                  onClick={() => setIsSearchBarOpen(!isSearchBarOpen)}
+                />
+              </div>
+            )}
             <div className="ml-2">
               <ThemeToggle />
             </div>
@@ -92,6 +113,7 @@ export function Navbar() {
         </div>
       </div>
       <BurgerMenu open={isBurgerOpen} onCloseClick={() => setBurgerOpen(false)} />
+      {!isSearchPage && isSearchBarOpen && <SearchBar />}
     </>
   );
 }
