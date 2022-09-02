@@ -41,9 +41,9 @@ export function Footer({ className, ...rest }: FooterProps) {
             <p className="text-base">
               <a href="https://goo.gl/maps/8DEopSWRozkwnvZ49">Киевское шоссе 2/5</a>
             </p>
-            <div className="flex items-center">
-              <span className="text-base mr-1 material-icons-outlined">call</span>
-              <a className="text-base" href="tel:+380983751007">
+            <div className="">
+              <a className="text-base flex items-center" href="tel:+380983751007">
+                <span className="text-base mr-1 material-icons-outlined">call</span>
                 0983751007
               </a>
             </div>
