@@ -29,5 +29,6 @@
 }
 
 .phone_icon {
-  @apply text-[1.5rem] mr-[2px];
+  @apply mr-[2px];
+  font-size: 1.5rem !important;
 }
