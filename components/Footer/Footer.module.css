@@ -27,3 +27,7 @@
 .menu-link {
   @apply text-base cursor-pointer hover:underline;
 }
+
+.phone_icon {
+  @apply text-[1.5rem] mr-[2px];
+}

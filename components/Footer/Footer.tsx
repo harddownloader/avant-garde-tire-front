@@ -43,7 +43,7 @@ export function Footer({ className, ...rest }: FooterProps) {
             </p>
             <div className="">
               <a className="text-base flex items-center" href="tel:+380983751007">
-                <span className="text-base mr-1 material-icons-outlined">call</span>
+                <span className={clsx(styles.phone_icon, "material-icons-outlined")}>call</span>
                 0983751007
               </a>
             </div>
