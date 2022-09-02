@@ -29,14 +29,25 @@ export function Footer({ className, ...rest }: FooterProps) {
   return (
     <footer className={clsx(styles.footer, className)} {...rest}>
       <div className={styles["footer-inner"]}>
-        <div className="flex mb-14 sm:mb-10">
-          <Link href={paths.$url()} passHref>
-            <a href="pass" className="hidden sm:inline-block">
-              <div className="mt-px group block h-16 w-28 relative grayscale">
-                <p className="font-bold text-3xl uppercase">{STOREFRONT_NAME}</p>
-              </div>
-            </a>
-          </Link>
+        <div className="block w-full md:w-auto md:flex mb-14 sm:mb-10">
+          <div className="h-16 md:w-30">
+            <Link href={paths.$url()} passHref>
+              <a href="pass" className="inline-block mb-2">
+                <div className="mt-px group block relative grayscale">
+                  <p className="font-bold text-3xl uppercase">{STOREFRONT_NAME}</p>
+                </div>
+              </a>
+            </Link>
+            <p className="text-base">
+              <a href="https://goo.gl/maps/8DEopSWRozkwnvZ49">Киевское шоссе 2/5</a>
+            </p>
+            <div className="flex items-center">
+              <span className="text-base mr-1 material-icons-outlined">call</span>
+              <a className="text-base" href="tel:+380983751007">
+                0983751007
+              </a>
+            </div>
+          </div>
           <div className="grid grid-cols-2 gap-[2rem] w-full sm:w-auto sm:flex sm:flex-wrap sm:justify-end sm:ml-auto">
             {menu.map((item) => (
               <div className="sm:ml-14" key={item?.id}>
