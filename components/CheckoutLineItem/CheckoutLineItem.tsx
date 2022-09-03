@@ -78,10 +78,10 @@ export function CheckoutLineItem({ line }: CheckoutLineItemProps) {
         )}
       </div>
 
-      <div className="ml-8 flex-1 flex flex-col justify-center">
+      <div className="ml-4 md:ml-8 flex-1 flex flex-col justify-center">
         <div>
           <div className="flex justify-between">
-            <div className="pr-6">
+            <div className="pr-3 md:pr-6">
               <h3 className="text-md md:text-xl font-bold">
                 <Link href={paths.products._slug(line?.variant?.product?.slug).$url()} passHref>
                   <a
