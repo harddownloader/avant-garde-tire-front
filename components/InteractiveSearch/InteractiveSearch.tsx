@@ -80,13 +80,16 @@ export function InteractiveSearch({
 
   return (
     <div>
-      <ul
-        className={clsx("grid grid-cols-1 gap-2 py-4 bg-white", "dark:bg-black")}
-        data-testid="productsList"
-      >
-        {filter?.search &&
-          products.map((product) => <ProductListItem key={product.id} product={product} />)}
-      </ul>
+      {filter?.search && (
+        <ul
+          className={clsx("grid grid-cols-1 gap-2 py-4 bg-white", "dark:bg-black")}
+          data-testid="productsList"
+        >
+          {products.map((product) => (
+            <ProductListItem key={product.id} product={product} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
