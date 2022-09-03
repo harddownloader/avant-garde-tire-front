@@ -34,19 +34,34 @@ export function HomepageBlock({ menuItem }: HomepageBlockProps) {
   }
   return (
     <div className="pb-8" data-testid="category">
-      <h1
-        className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white pb-4"
-        data-testid={`categoryName${menuItem.name}`}
-      >
-        {translate(menuItem, "name")}
-      </h1>
+      <div className="w-full flex items-center justify-between pb-4">
+        <h1
+          className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white "
+          data-testid={`categoryName${menuItem.name}`}
+        >
+          {translate(menuItem, "name")}
+        </h1>
+
+        <div className="hidden md:flex flex-row-reverse p-4">
+          <Link href={link} passHref>
+            <a href="pass">
+              <p className="text-base uppercase underline hover:text-action-1">
+                {t.formatMessage(messages.more)}
+              </p>
+            </a>
+          </Link>
+        </div>
+      </div>
+
       {/* place for future filters */}
       <ProductCollection filter={filter} allowMore={false} />
 
-      <div className="flex flex-row-reverse p-4">
+      <div className="flex md:hidden flex-row-reverse p-4">
         <Link href={link} passHref>
           <a href="pass">
-            <p className="text-base">{t.formatMessage(messages.more)}</p>
+            <p className="text-base uppercase underline hover:text-action-1">
+              {t.formatMessage(messages.more)}
+            </p>
           </a>
         </Link>
       </div>
