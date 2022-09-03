@@ -75,5 +75,6 @@
   "app.filter.sortBy": "Сортувати за",
   "app.filter.inStock": "В наявності",
   "app.category.products": "продуктів",
-  "app.category.clearAll": "Очистити все"
+  "app.category.clearAll": "Очистити все",
+  "app.contacts.address": "Київське шосе 2/5"
 }
