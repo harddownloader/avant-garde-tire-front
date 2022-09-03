@@ -388,6 +388,11 @@ export const messages = defineMessages({
     description: "Text of clear all filter tags btn for the category",
     defaultMessage: "Clear all",
   },
+  contactAddress: {
+    id: "app.contacts.address",
+    description: "Address of shop",
+    defaultMessage: "Kiev highway 2/5",
+  },
 });
 
 export default messages;

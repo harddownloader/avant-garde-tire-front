@@ -1,7 +1,9 @@
 import clsx from "clsx";
 import Link from "next/link";
 import React, { HTMLAttributes } from "react";
+import { useIntl } from "react-intl";
 
+import { messages } from "@/components/translations";
 import { STOREFRONT_NAME } from "@/lib/const";
 import { getLinkPath } from "@/lib/menus";
 import { usePaths } from "@/lib/paths";
@@ -16,6 +18,7 @@ export type FooterProps = HTMLAttributes<HTMLElement>;
 
 export function Footer({ className, ...rest }: FooterProps) {
   const paths = usePaths();
+  const t = useIntl();
   const { query, currentChannel, currentLocale } = useRegions();
 
   const { data, error } = useFooterMenuQuery({ variables: { ...query } });
@@ -39,7 +42,9 @@ export function Footer({ className, ...rest }: FooterProps) {
               </a>
             </Link>
             <p className="text-base">
-              <a href="https://goo.gl/maps/8DEopSWRozkwnvZ49">Киевское шоссе 2/5</a>
+              <a href="https://goo.gl/maps/8DEopSWRozkwnvZ49">
+                {t.formatMessage(messages.contactAddress)}
+              </a>
             </p>
             <div className="">
               <a className="text-base flex items-center" href="tel:+380983751007">

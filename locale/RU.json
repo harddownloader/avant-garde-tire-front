@@ -75,5 +75,6 @@
   "app.filter.sortBy": "Сортировать по",
   "app.filter.inStock": "В наличии",
   "app.category.products": "товаров",
-  "app.category.clearAll": "Очистить все"
+  "app.category.clearAll": "Очистить все",
+  "app.contacts.address": "Киевское шоссе 2/5"
 }
