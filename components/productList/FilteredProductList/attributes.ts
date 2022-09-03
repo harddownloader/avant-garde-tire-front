@@ -16,7 +16,7 @@ export const getPillsData = (
 ): FilterPill[] =>
   urlFilters.reduce((result: FilterPill[], filter: UrlFilter) => {
     const choiceAttribute = attributeFiltersData.find((attr) => attr.slug === filter.slug);
-    const attrName = choiceAttribute ? choiceAttribute.name : filter.slug;
+    const attrName = choiceAttribute ? translate(choiceAttribute, "name") : filter.slug;
     const newPills = filter.values.map((value) => {
       const attrChoice = choiceAttribute?.choices?.edges.find(
         (choice) => choice.node.slug === value
